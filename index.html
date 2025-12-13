@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>気象庁震源リスト可視化（青森県東方沖）</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem;
+    }
+
+    section {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      border-left: 6px solid #003366;
+      padding-left: 0.5rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #555;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>気象庁 震源リスト可視化（青森県東方沖）</h1>
+  <p>毎日自動更新予定</p>
+</header>
+
+<section>
+  <h2>① MT グラフ（Magnitude – Time）</h2>
+  <iframe src="output/mt_plot.html"></iframe>
+</section>
+
+<section>
+  <h2>② ET / NT グラフ（積算エネルギー・積算回数）</h2>
+  <iframe src="output/et_plot.html"></iframe>
+</section>
+
+<section>
+  <h2>③ XT グラフ（緯度–時間）</h2>
+  <iframe src="output/xt_plot.html"></iframe>
+</section>
+
+<section>
+  <h2>④ XY・DY・DX 図</h2>
+  <iframe src="output/xy_plot.html"></iframe>
+</section>
+
+<section>
+  <h2>⑤ XY 時間スライダー（1日ごとの震源分布）</h2>
+  <iframe src="output/xyt_plot.html"></iframe>
+</section>
+
+<footer>
+  <p>
+    データは気象庁「震源リスト」を利用しております。
+    なお、この情報は震源情報をグラフなどで可視化したサイトであり、地震予知などを目的としたものではありません。
+    いかなる場合においても、本サイトの情報に基づいて生じたいかなる損害についても、当サイトは一切の責任を負いません。
+  </p>
+</footer>
+
+</body>
+</html>
