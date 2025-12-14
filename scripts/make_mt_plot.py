@@ -39,24 +39,38 @@ fig = px.scatter(
     x="datetime",
     y="magnitude",
     size="magnitude",
-    color="depth_km",
-    hover_data={
-        "latitude": True,
-        "longitude": True,
-        "depth_km": True,
-        "region": True
-    },
     labels={
         "datetime": "Time (JST)",
         "magnitude": "Magnitude",
-        "depth_km": "Depth (km)"
     },
+
     title = "MT Plot"
+)
+
+fig.update_traces(
+    marker=dict(
+        symbol="circle",
+        line=dict(color="blue", width=1.5),
+        color="rgba(0,0,0,0)"
+    ),
+    error_y=dict(
+        type="data",
+        symmetric=False,
+        array=[0]*len(df),
+        arrayminus=df["magnitude"],
+        thickness=1.2,
+        width=0,
+        color="blue"
+    )
 )
 
 fig.update_layout(
     template="plotly_white",
-    hovermode="closest"
+    hovermode="closest",
+    yaxis=dict(
+        title="Magnitude",
+        rangemode="tozero"
+    )
 )
 
 fig.write_html(

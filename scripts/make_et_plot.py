@@ -47,7 +47,12 @@ fig.add_trace(
     go.Scatter(
         x=df["datetime"],
         y=df["cum_energy_joule"],
-        mode="lines",
+        mode="lines+markers",
+        line=dict(shape="hv"),
+        marker=dict(
+            size=6,
+            symbol="circle"
+        ),
         name="Cumulative Energy (J)",
         yaxis="y1"
     )
@@ -58,7 +63,12 @@ fig.add_trace(
     go.Scatter(
         x=df["datetime"],
         y=df["cum_count"],
-        mode="lines",
+        mode="lines+markers",
+        line=dict(shape="hv"),
+        marker=dict(
+            size=6,
+            symbol="circle"
+        ),
         name="Cumulative Count",
         yaxis="y2"
     )

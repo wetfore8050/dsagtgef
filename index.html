@@ -1,101 +1,145 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-59E5FV18SW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) - Assuming the user wants to keep this tracking code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59E5FV18SW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-59E5FV18SW');
+    </script>
+    
+    <meta charset="UTF-8">
+    <title>震源データグラフ（青森県東方沖）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    gtag('config', 'G-59E5FV18SW');
-  </script>
-  <meta charset="UTF-8">
-  <title>気象庁震源リスト可視化（青森県東方沖）</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-    }
-
-    header {
-      background: #003366;
-      color: white;
-      padding: 1rem;
-    }
-
-    section {
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      margin-top: 0;
-      border-left: 6px solid #003366;
-      padding-left: 0.5rem;
-    }
-
-    iframe {
-      width: 100%;
-      height: 700px;
-      border: none;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      color: #555;
-      font-size: 0.9rem;
-    }
-  </style>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Custom configuration for better font and body style */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light background */
+        }
+        /* Custom style for iframes to ensure smooth resizing */
+        iframe {
+            min-height: 500px; /* Minimum height for better viewing */
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#003366',
+                        'secondary-gray': '#e2e8f0',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body>
+<body class="min-h-screen">
 
-<header>
-  <h1>気象庁 震源リスト可視化（青森県東方沖）</h1>
-  <p>毎日自動更新予定</p>
-</header>
+    <!-- Header Section -->
+    <header class="bg-primary-blue text-white shadow-lg">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                震源データグラフ（青森県東方沖）
+            </h1>
+            <p class="mt-1 text-sm sm:text-base font-medium text-blue-200">
+                気象庁「震源リスト」情報を利用しています。
+            </p>
+            <p class="mt-2 text-xs sm:text-sm text-blue-300 italic">
+                （毎日自動更新予定）
+            </p>
+        </div>
+    </header>
 
-<section>
-  <h2>① MT グラフ（Magnitude – Time）</h2>
-  <iframe src="output/mt_plot.html"></iframe>
-</section>
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto py-8 sm:px-6 lg:px-8">
+        <div class="space-y-8">
 
-<section>
-  <h2>② ET / NT グラフ（積算エネルギー・積算回数）</h2>
-  <iframe src="output/et_plot.html"></iframe>
-</section>
+            <!-- Card Structure for Graphs -->
+            
+            <div class="bg-white shadow-xl rounded-xl p-4 sm:p-6 lg:p-8">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 border-l-4 border-primary-blue pl-3">
+                    ① MT グラフ（Magnitude – Time）
+                </h2>
+                <div class="aspect-video">
+                    <iframe src="output/mt_plot.html" class="w-full h-[600px] rounded-lg"></iframe>
+                </div>
+            </div>
 
-<section>
-  <h2>③ XT グラフ（緯度–時間）</h2>
-  <iframe src="output/xt_plot.html"></iframe>
-</section>
+            <div class="bg-white shadow-xl rounded-xl p-4 sm:p-6 lg:p-8">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 border-l-4 border-primary-blue pl-3">
+                    ② ET / NT グラフ（積算エネルギー・積算回数）
+                </h2>
+                <div class="aspect-video">
+                    <iframe src="output/et_plot.html" class="w-full h-[600px] rounded-lg"></iframe>
+                </div>
+            </div>
 
-<section>
-  <h2>④ XY・DY・DX 図</h2>
-  <iframe src="output/xy_plot.html"></iframe>
-</section>
+            <div class="bg-white shadow-xl rounded-xl p-4 sm:p-6 lg:p-8">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 border-l-4 border-primary-blue pl-3">
+                    ③ XT グラフ（緯度–時間）
+                </h2>
+                <div class="aspect-video">
+                    <iframe src="output/xt_plot.html" class="w-full h-[600px] rounded-lg"></iframe>
+                </div>
+            </div>
 
-<section>
-  <h2>⑤ XY 時間スライダー（1日ごとの震源分布）</h2>
-  <iframe src="output/xyt_plot.html"></iframe>
-</section>
+            <div class="bg-white shadow-xl rounded-xl p-4 sm:p-6 lg:p-8">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 border-l-4 border-primary-blue pl-3">
+                    ④ YT グラフ（経度–時間）
+                </h2>
+                <div class="aspect-video">
+                    <iframe src="output/yt_plot.html" class="w-full h-[600px] rounded-lg"></iframe>
+                </div>
+            </div>
 
-<footer>
-  <p>
-    データは気象庁「震源リスト」を利用しております。
-    なお、この情報は震源情報をグラフなどで可視化したサイトであり、地震予知などを目的としたものではありません。
-    いかなる場合においても、本サイトの情報に基づいて生じたいかなる損害についても、当サイトは一切の責任を負いません。
-  </p>
-</footer>
+            <div class="bg-white shadow-xl rounded-xl p-4 sm:p-6 lg:p-8">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 border-l-4 border-primary-blue pl-3">
+                    ⑤ XY・DY・DX 図
+                </h2>
+                <div class="aspect-video">
+                    <iframe src="output/xy_plot.html" class="w-full h-[600px] rounded-lg"></iframe>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-xl rounded-xl p-4 sm:p-6 lg:p-8">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 border-l-4 border-primary-blue pl-3">
+                    ⑥ XY 時間スライダー（1日ごとの震源分布）
+                </h2>
+                <div class="aspect-video">
+                    <iframe src="output/xyt_plot.html" class="w-full h-[600px] rounded-lg"></iframe>
+                </div>
+            </div>
+
+            <!-- Notes / Disclaimer Section -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-md" role="alert">
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    <p class="font-bold text-lg">注意事項</p>
+                </div>
+                <p class="mt-2 text-sm">
+                    データは気象庁「震源リスト」を利用しております。
+                    なお、この情報は震源情報をグラフなどで可視化したサイトであり、地震予知などを目的としたものではありません。
+                    いかなる場合においても、本サイトの情報に基づいて生じたいかなる損害についても、当サイトは一切の責任を負いません。
+                </p>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 bg-gray-700 text-white p-4 text-center text-sm">
+        &copy; 2025 震源データグラフ（青森県東方沖）
+    </footer>
 
 </body>
 </html>
