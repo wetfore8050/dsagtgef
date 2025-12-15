@@ -9,7 +9,7 @@ JST = timezone(timedelta(hours=9))
 target_date = datetime.now(JST).date() - timedelta(days=1)
 
 #yyyymmdd = target_date.strftime("%Y%m%d")
-yyyymmdd = "20251213"
+yyyymmdd = "20251214"
 #yyyy = target_date.strftime("%Y")
 #mm = target_date.strftime("%m")
 #dd = target_date.strftime("%d")
